@@ -1,6 +1,9 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-image: url('bni78.jpeg');
+  background-size: 100%; /* Agar gambar menutupi seluruh container */
+  background-position: center; /* Memposisikan gambar di tengah */
+  background-repeat: no-repeat; /* Agar gambar tidak diulang */
   margin: 0;
   padding: 0;
 }
@@ -11,7 +14,7 @@ body {
   padding: 60px;
   /* Menggunakan gambar sebagai background */
   background-image: url('bni78.jpeg');
-  background-size: 160%; /* Agar gambar menutupi seluruh container */
+  background-size: 190%; /* Agar gambar menutupi seluruh container */
   background-position: center; /* Memposisikan gambar di tengah */
   background-repeat: no-repeat; /* Agar gambar tidak diulang */
   border-radius: 8px;
