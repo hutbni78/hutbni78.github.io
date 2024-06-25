@@ -11,7 +11,7 @@ body {
   padding: 60px;
   /* Menggunakan gambar sebagai background */
   background-image: url('bni78.jpeg');
-  background-size: cover; /* Agar gambar menutupi seluruh container */
+  background-size: 160%; /* Agar gambar menutupi seluruh container */
   background-position: center; /* Memposisikan gambar di tengah */
   background-repeat: no-repeat; /* Agar gambar tidak diulang */
   border-radius: 8px;
