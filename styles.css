@@ -22,6 +22,16 @@ body {
 }
 
 @media (max-width: 768px) {
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('bni78.jpeg');
+    background-size: 100%; /* Agar gambar menutupi seluruh container */
+    background-position: center; /* Memposisikan gambar di tengah */
+    background-repeat: no-repeat; /* Agar gambar tidak diulang */
+    margin: 0;
+    padding: 0;
+  }
   .container {
       padding: 40px;
   }
@@ -31,6 +41,16 @@ body {
 }
 
 @media (max-width: 600px) {
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('bni78.jpeg');
+    background-size: 100%; /* Agar gambar menutupi seluruh container */
+    background-position: center; /* Memposisikan gambar di tengah */
+    background-repeat: no-repeat; /* Agar gambar tidak diulang */
+    margin: 0;
+    padding: 0;
+  }
   .container {
       padding: 20px;
   }
@@ -49,6 +69,16 @@ body {
 }
 
 @media (max-width: 400px) {
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('bni78.jpeg');
+    background-size: 100%; /* Agar gambar menutupi seluruh container */
+    background-position: center; /* Memposisikan gambar di tengah */
+    background-repeat: no-repeat; /* Agar gambar tidak diulang */
+    margin: 0;
+    padding: 0;
+  }
   .container {
       padding: 10px;
   }
@@ -117,17 +147,4 @@ button:hover {
 #alreadySubmittedMessage {
   text-align: center;
   color: rgb(8, 8, 8);
-}
-
-/* Gambar latar belakang responsif */
-@media (max-width: 600px) {
-  .container {
-      background-size: contain; /* Atur ulang ukuran gambar */
-  }
-}
-
-@media (max-width: 400px) {
-  .container {
-      background-size: auto; /* Atur ulang ukuran gambar */
-  }
 }
