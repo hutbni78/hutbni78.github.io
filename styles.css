@@ -7,75 +7,57 @@ body {
   background-size: cover; /* Menutupi seluruh area body */
   background-position: center; /* Memposisikan gambar di tengah */
   background-repeat: no-repeat; /* Tidak diulang */
+  min-height: 100vh; /* Pastikan body menutupi seluruh tinggi viewport */
 }
-
 
 .container {
   max-width: 600px;
   margin: 20px auto;
   padding: 60px;
-  background-image: url('bni78.jpeg');
-  background-size: cover; /* Agar gambar menutupi seluruh container */
-  background-position: center; /* Memposisikan gambar di tengah */
-  background-repeat: no-repeat; /* Agar gambar tidak diulang */
+  background-color: rgba(255, 255, 255, 0.8); /* Tambahkan background semi-transparan untuk konten */
   border-radius: 8px;
-  box-shadow: 90px 32px 20px rgba(0, 0, 0, 0.1); /* Menyesuaikan bayangan ke kanan */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Menyesuaikan bayangan */
 }
-
-
 
 @media (max-width: 768px) {
-  
-  body {
-    background-size: auto; /* Mengubah ukuran gambar agar sesuai dengan ukuran body */
-}
   .container {
-      padding: 40px;
+    padding: 40px;
   }
   .card-title {
     font-size: 24px; /* Ukuran font di layar medium */
-}
+  }
 }
 
 @media (max-width: 600px) {
-  
-  body {
-    background-size: auto; /* Mengubah ukuran gambar agar sesuai dengan ukuran body */
-}
   .container {
-      padding: 20px;
+    padding: 20px;
   }
 
   input[type="text"] {
-      padding: 10px;
-      font-size: 14px;
+    padding: 10px;
+    font-size: 14px;
   }
 
   button {
-      padding: 12px 24px;
+    padding: 12px 24px;
   }
   .card-title {
     font-size: 20px; /* Ukuran font di layar kecil */
-}
+  }
 }
 
 @media (max-width: 400px) {
-  
-
-  body {
-    background-size: auto; /* Mengubah ukuran gambar agar sesuai dengan ukuran body */
-}
   .container {
-      padding: 10px;
+    padding: 10px;
   }
 
   input[type="text"] {
-      padding: 8px;
-      font-size: 12px;
+    padding: 8px;
+    font-size: 12px;
   }
 
   button {
-      padding: 10px 20px;
+    padding: 10px 20px;
   }
   .card-title {
     font-size: 18px; /* Ukuran font di layar sangat kecil */
