@@ -78,12 +78,7 @@ function submitForm(event) {
     };
 }
 
-
 // function disableForm() {
 //     document.getElementById('formData').style.display = 'none';
-<<<<<<< HEAD
 //     document.getElementById('alreadySubmittedMessage').style.display = 'block';
-=======
-//     document.getElementById('alreadySubmittedMessage').style.display = 'block';d
->>>>>>> f9b6adc6577796b0d4146d7b2f973f1585905983
 // }
