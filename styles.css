@@ -8,6 +8,7 @@ body {
   background-position: center; /* Memposisikan gambar di tengah */
   background-repeat: no-repeat; /* Tidak diulang */
   min-height: 100vh; /* Pastikan body menutupi seluruh tinggi viewport */
+  overflow: hidden;
 }
 
 .container {
