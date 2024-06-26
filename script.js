@@ -11,22 +11,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const music = document.getElementById('backgroundMusic');
-    music.play().catch(() => {
-        // Pemutaran otomatis mungkin diblokir. Tambahkan pesan atau tombol untuk memulai musik
-        let playButton = document.createElement('button');
-        playButton.textContent = 'Klik untuk memutar musik';
-        playButton.style.position = 'absolute';
-        playButton.style.top = '10px';
-        playButton.style.left = '10px';
-        playButton.addEventListener('click', () => {
-            music.play();
-            playButton.remove();
-        });
-        document.body.appendChild(playButton);
-    });
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     const music = document.getElementById('backgroundMusic');
+//     music.play().catch(() => {
+//         // Pemutaran otomatis mungkin diblokir. Tambahkan pesan atau tombol untuk memulai musik
+//         let playButton = document.createElement('button');
+//         playButton.textContent = 'Klik untuk memutar musik';
+//         playButton.style.position = 'absolute';
+//         playButton.style.top = '10px';
+//         playButton.style.left = '10px';
+//         playButton.addEventListener('click', () => {
+//             music.play();
+//             playButton.remove();
+//         });
+//         document.body.appendChild(playButton);
+//     });
+// });
 
 function submitForm(event) {
     event.preventDefault(); // Mencegah pengiriman formulir secara default
