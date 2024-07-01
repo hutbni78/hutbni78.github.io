@@ -137,7 +137,7 @@ button:hover {
     font-size: 20px;
   }
   .card-title{
-    font-size: 40px;
+    font-size: 20px;
   }
   input[type="text"] {
     padding: 10px;
@@ -165,7 +165,9 @@ button:hover {
   .welcome-message {
     font-size: 18px;
   }
-
+  .card-title{
+    font-size: 18px;
+  }
   input[type="text"] {
     padding: 8px;
     font-size: 12px;
