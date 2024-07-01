@@ -20,71 +20,6 @@ body {
   box-shadow: 20px 0px 20px rgba(0, 0, 0, 0.8); /* Menyesuaikan bayangan */
 }
 
-@media (max-width: 600px) {
-  body {
-    background-position: left top; /* Memposisikan gambar ke kiri atas pada ukuran layar kecil */
-  }
-
-  .container {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5); /* Tambahkan background semi-transparan untuk konten */
-    border-radius: 8px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Menyesuaikan bayangan */
-  }
-
-  input[type="text"] {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  button {
-    padding: 12px 24px;
-    width: 100%;  /* Pastikan tombol mengisi lebar parent di layar kecil */
-    font-size: 16px;
-  }
-
-  .card-title {
-    font-size: 20px; /* Ukuran font di layar kecil */
-  }
-}
-
-@media (max-width: 400px) {
-  body {
-    background-position: left top; /* Memposisikan gambar ke kiri atas pada ukuran layar sangat kecil */
-  }
-
-  .container {
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.5); /* Tambahkan background semi-transparan untuk konten */
-    border-radius: 8px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Menyesuaikan bayangan */
-  }
-
-  input[type="text"] {
-    padding: 8px;
-    font-size: 12px;
-  }
-
-  button {
-    padding: 10px 20px;
-    width: 100%;  /* Pastikan tombol mengisi lebar parent di layar sangat kecil */
-    font-size: 14px;
-  }
-
-  .card-title {
-    font-size: 18px; /* Ukuran font di layar sangat kecil */
-  }
-}
-
-.container {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 60px;
-  background-color: rgba(255, 255, 255, 0.5); /* Tambahkan background semi-transparan untuk konten */
-  border-radius: 8px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Menyesuaikan bayangan */
-}
-
 .card-title {
   font-weight: 900;
   margin-bottom: 30px;
@@ -136,4 +71,60 @@ button:hover {
 #alreadySubmittedMessage {
   text-align: center;
   color: rgb(8, 8, 8);
+}
+
+@media (max-width: 600px) {
+  body {
+    background-position: left top; /* Memposisikan gambar ke kiri atas pada ukuran layar kecil */
+  }
+
+  .container {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px 24px;
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    background-position: left top; /* Memposisikan gambar ke kiri atas pada ukuran layar sangat kecil */
+  }
+
+  .container {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 14px;
+  }
 }
