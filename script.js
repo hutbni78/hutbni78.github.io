@@ -29,48 +29,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const music = document.getElementById('backgroundMusic');
     music.play().catch(() => {
-        let playButton = document.createElement('button');
-        playButton.textContent = 'Lanjut';
-        playButton.style.position = 'absolute';
-        playButton.style.top = '50%';
-        playButton.style.left = '50%';
-        playButton.style.transform = 'translate(-50%, -50%)';
-        playButton.style.padding = '10px 20px';
-        playButton.style.fontFamily = 'Arial, sans-serif';
-        playButton.style.fontSize = '16px';
+    let playButton = document.createElement('button');
+    playButton.textContent = 'Lanjut';
+    playButton.style.position = 'absolute';
+    playButton.style.top = '50%';
+    playButton.style.left = '50%';
+    playButton.style.transform = 'translate(-50%, -50%)';
+    playButton.style.padding = '10px 20px';
+    playButton.style.fontFamily = 'Arial, sans-serif';
+    playButton.style.fontSize = '16px';
+    playButton.style.backgroundColor = '#007bff';
+    playButton.style.color = 'white';
+    playButton.style.border = 'none';
+    playButton.style.borderRadius = '4px';
+    playButton.style.cursor = 'pointer';
+    playButton.style.transition = 'background-color 0.3s ease';
+    
+    playButton.addEventListener('mouseover', function() {
+        playButton.style.backgroundColor = '#0073ee';
+    });
+    
+    playButton.addEventListener('mouseout', function() {
         playButton.style.backgroundColor = '#007bff';
-        playButton.style.color = 'white';
-        playButton.style.border = 'none';
-        playButton.style.borderRadius = '4px';
-        playButton.style.cursor = 'pointer';
-        playButton.style.transition = 'background-color 0.3s ease';
+    });
     
-        playButton.addEventListener('mouseover', function() {
-            playButton.style.backgroundColor = '#0073ee';
-        });
-    
-        playButton.addEventListener('mouseout', function() {
-            playButton.style.backgroundColor = '#007bff';
-        });
-    
-        playButton.addEventListener('click', () => {
-            music.play();
-            playButton.remove();
-            document.getElementById('formContainer').style.display = 'block';
-            welcomeMessage.remove();
-        });
+    playButton.addEventListener('click', () => {
+        music.play();
+        playButton.remove();
+        document.getElementById('formContainer').style.display = 'block';
+        welcomeMessage.remove(); // Menghapus pesan Selamat Datang setelah tombol diklik
+    });
         document.body.appendChild(playButton);
     });
 });
 
 function submitForm(event) {
-    event.preventDefault(); // Mencegah pengiriman formulir secara default
+    event.preventDefault();
 
     var nama = document.getElementById('nama').value.trim();
     var npp = document.getElementById('npp').value.trim();
     var unit = document.getElementById('unit').value.trim();
 
-    // Validasi input kosong
     if (nama === '' || npp === '' || unit === '') {
         Swal.fire({
             icon: 'error',
@@ -78,18 +77,18 @@ function submitForm(event) {
             text: 'Harap lengkapi semua kolom sebelum mengirim data.',
             confirmButtonText: 'Tutup'
         });
-        return; // Menghentikan fungsi submitForm jika ada input yang kosong
+        return;
     }
 
     var formData = new FormData(document.getElementById('formData'));
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbyXMDevfNduNoE27ZZaoPSkjbcp2F7QbAvGd8NhQrwGdWRvjStTiYDm_09CjcsJ098sew/exec'); // Ganti dengan URL dari Google Apps Script
+    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbyXMDevfNduNoE27ZZaoPSkjbcp2F7QbAvGd8NhQrwGdWRvjStTiYDm_09CjcsJ098sew/exec');
     xhr.send(formData);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                document.getElementById('formData').reset(); // Mengosongkan formulir setelah pengiriman berhasil
+                document.getElementById('formData').reset();
                 Swal.fire({
                     icon: 'success',
                     title: 'Berhasil',
