@@ -11,10 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    let welcomeMessageWrapper = document.createElement('div');
+    welcomeMessageWrapper.className = 'welcome-message-wrapper';
+
     let welcomeMessage = document.createElement('div');
     welcomeMessage.className = 'welcome-message';
     welcomeMessage.innerHTML = '<p>Selamat datang di acara HUT BNI ke-78 Kantor Wilayah Surabaya</p>';
-    document.body.appendChild(welcomeMessage);
+    welcomeMessageWrapper.appendChild(welcomeMessage);
+    document.body.appendChild(welcomeMessageWrapper);
 
     const music = document.getElementById('backgroundMusic');
     music.play().catch(() => {
@@ -26,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             music.play();
             playButton.remove();
             document.getElementById('formContainer').style.display = 'block';
-            welcomeMessage.remove();
+            welcomeMessageWrapper.remove();
         });
         welcomeMessage.appendChild(playButton);
     });
