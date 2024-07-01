@@ -148,23 +148,6 @@ button:hover {
     padding: 12px 24px;
     font-size: 16px;
   }
-  .text {
-    /* font-size: 100px;
-    font-weight: 800; */
-    outline: none;
-    background: linear-gradient(135deg, #9b7edb 0%, #fbffc0 25%, #dfef59 50%, #04dcd7 75%, #fe8503 100%);
-    background-size: 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate 7s linear infinite;
-    margin-bottom: 20px;
-  }
-  
-  @keyframes animate{
-    to{
-        background-position: 400%;
-    }
-  }
 }
 
 @media (max-width: 400px) {
@@ -192,23 +175,6 @@ button:hover {
     padding: 10px 20px;
     font-size: 14px;
   }
-  .text {
-    /* font-size: 100px;
-    font-weight: 800; */
-    outline: none;
-    background: linear-gradient(135deg, #9b7edb 0%, #fbffc0 25%, #dfef59 50%, #04dcd7 75%, #fe8503 100%);
-    background-size: 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate 7s linear infinite;
-    margin-bottom: 20px;
-  }
-  
-  @keyframes animate{
-    to{
-        background-position: 400%;
-    }
-  }
 }
 .text {
   /* font-size: 100px;
@@ -223,6 +189,24 @@ button:hover {
 }
 
 @keyframes animate{
+  to{
+      background-position: 400%;
+  }
+}
+
+.text2 {
+  /* font-size: 100px;
+  font-weight: 800; */
+  outline: none;
+  background: linear-gradient(135deg, #9b7edb 0%, #fbffc0 25%, #dfef59 50%, #04dcd7 75%, #fe8503 100%);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate2 7s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes animate2{
   to{
       background-position: 400%;
   }
