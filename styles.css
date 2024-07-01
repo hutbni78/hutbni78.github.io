@@ -12,7 +12,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 .container {
@@ -83,7 +82,6 @@ button:hover {
 
 .welcome-message {
   max-width: 600px;
-  margin: 20px auto;
   padding: 60px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
@@ -117,6 +115,7 @@ button:hover {
 @media (max-width: 600px) {
   body {
     background-position: left top;
+    justify-content: center; /* Menjaga konten tetap di tengah pada layar kecil */
   }
 
   .container, .welcome-message {
@@ -144,6 +143,7 @@ button:hover {
 @media (max-width: 400px) {
   body {
     background-position: left top;
+    justify-content: center; /* Menjaga konten tetap di tengah pada layar sangat kecil */
   }
 
   .container, .welcome-message {
