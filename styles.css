@@ -12,6 +12,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .container {
@@ -80,8 +81,16 @@ button:hover {
   color: rgb(8, 8, 8);
 }
 
+.welcome-message-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .welcome-message {
   max-width: 600px;
+  margin: 20px auto;
   padding: 60px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
@@ -115,20 +124,21 @@ button:hover {
 @media (max-width: 600px) {
   body {
     background-position: left top;
-    justify-content: center; /* Menjaga konten tetap di tengah pada layar kecil */
   }
 
-  .container, .welcome-message {
+  .welcome-message {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   }
 
-  .card-title, .welcome-message {
+  .welcome-message {
     font-size: 20px;
   }
-
+  .card-title{
+    font-size: 40px;
+  }
   input[type="text"] {
     padding: 10px;
     font-size: 14px;
@@ -143,17 +153,16 @@ button:hover {
 @media (max-width: 400px) {
   body {
     background-position: left top;
-    justify-content: center; /* Menjaga konten tetap di tengah pada layar sangat kecil */
   }
 
-  .container, .welcome-message {
+  .welcome-message {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   }
 
-  .card-title, .welcome-message {
+  .welcome-message {
     font-size: 18px;
   }
 
