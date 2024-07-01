@@ -4,20 +4,28 @@ body {
   margin: 0;
   padding: 0;
   background-image: url('bni78.jpeg');
-  background-size: cover; /* Menutupi seluruh area body */
-  background-position: center; /* Memposisikan gambar di tengah */
-  background-repeat: no-repeat; /* Tidak diulang */
-  min-height: 100vh; /* Pastikan body menutupi seluruh tinggi viewport */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .container {
   max-width: 600px;
   margin: 20px auto;
   padding: 60px;
-  background-color: rgba(255, 255, 255, 0.5); /* Tambahkan background semi-transparan untuk konten */
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
-  box-shadow: 20px 0px 20px rgba(0, 0, 0, 0.8); /* Menyesuaikan bayangan */
+  box-shadow: 20px 0px 20px rgba(0, 0, 0, 0.8);
+}
+
+.card-body {
+  padding: 20px;
 }
 
 .card-title {
@@ -28,7 +36,7 @@ body {
 
 .btn {
   margin-top: 30px;
-  width: 100%; /* Tombol mengisi lebar parent */
+  width: 100%;
 }
 
 form {
@@ -73,19 +81,52 @@ button:hover {
   color: rgb(8, 8, 8);
 }
 
+.welcome-message {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 60px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: 20px 0px 20px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  font-weight: 900;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button {
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.play-button:hover {
+  background-color: #0073ee;
+}
+
 @media (max-width: 600px) {
   body {
-    background-position: left top; /* Memposisikan gambar ke kiri atas pada ukuran layar kecil */
+    background-position: left top;
   }
 
-  .container {
+  .container, .welcome-message {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   }
 
-  .card-title {
+  .card-title, .welcome-message {
     font-size: 20px;
   }
 
@@ -96,24 +137,23 @@ button:hover {
 
   button {
     padding: 12px 24px;
-    width: 100%;
     font-size: 16px;
   }
 }
 
 @media (max-width: 400px) {
   body {
-    background-position: left top; /* Memposisikan gambar ke kiri atas pada ukuran layar sangat kecil */
+    background-position: left top;
   }
 
-  .container {
+  .container, .welcome-message {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   }
 
-  .card-title {
+  .card-title, .welcome-message {
     font-size: 18px;
   }
 
@@ -124,7 +164,6 @@ button:hover {
 
   button {
     padding: 10px 20px;
-    width: 100%;
     font-size: 14px;
   }
 }
