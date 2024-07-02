@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let welcomeMessage = document.createElement('div');
     welcomeMessage.className = 'welcome-message';
-    welcomeMessage.innerHTML = '<p class="text">Selamat datang di acara HUT BNI ke-78 Kantor Wilayah Surabaya</p>';
+    welcomeMessage.innerHTML = '<p class="text2">Selamat datang di acara HUT BNI ke-78 Kantor Wilayah Surabaya</p>';
     welcomeMessageWrapper.appendChild(welcomeMessage);
     document.body.appendChild(welcomeMessageWrapper);
 
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             playButton.remove();
             document.getElementById('formContainer').style.display = 'block';
             welcomeMessageWrapper.remove();
+            triggerConfetti();
         });
         welcomeMessage.appendChild(playButton);
     });
@@ -83,6 +84,29 @@ function submitForm(event) {
             }
         }
     };
+}
+
+function triggerConfetti() {
+    var end = Date.now() + (5 * 1000);
+
+    (function frame() {
+        confetti({
+            particleCount: 5,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+        });
+        confetti({
+            particleCount: 5,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
 }
 
 // function disableForm() {
