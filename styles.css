@@ -177,9 +177,8 @@ canvas {
     font-size: 18px;
   }
   .card-title{
-    font-size: 20px;
+    font-size: 18px;
   }
-
   input[type="text"] {
     padding: 8px;
     font-size: 12px;
@@ -194,7 +193,7 @@ canvas {
   /* font-size: 100px;
   font-weight: 800; */
   outline: none;
-  background: linear-gradient(135deg, #9b7edb 0%, #fbffc0 25%, #dfef59 50%, #04dcd7 75%, #fe8503 100%);
+  background: linear-gradient(135deg, #fbffc0 0%, #9b7edb 25%, #dfef59 50%, #04dcd7 75%, #fe8503 100%);
   background-size: 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
