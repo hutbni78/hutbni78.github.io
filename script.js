@@ -42,9 +42,10 @@ function submitForm(event) {
 
     var nama = document.getElementById('nama').value.trim();
     var npp = document.getElementById('npp').value.trim();
+    var kantor = document.getElementById('kantor').value.trim();
     var unit = document.getElementById('unit').value.trim();
 
-    if (nama === '' || npp === '' || unit === '') {
+    if (nama === '' || npp === '' || kantor ==='' || unit === '') {
         Swal.fire({
             icon: 'error',
             title: 'Gagal',
@@ -56,7 +57,7 @@ function submitForm(event) {
 
     var formData = new FormData(document.getElementById('formData'));
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbyXMDevfNduNoE27ZZaoPSkjbcp2F7QbAvGd8NhQrwGdWRvjStTiYDm_09CjcsJ098sew/exec');
+    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzpYjltWxnc6MGEbH2VzPJY07WFYEAzbMrOnv43WeBcD6Te9k0nbMNKfcfPFQtWZQw6CA/exec');
     xhr.send(formData);
 
     xhr.onreadystatechange = function() {
