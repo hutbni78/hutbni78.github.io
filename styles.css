@@ -121,6 +121,17 @@ button:hover {
   background-color: #0073ee;
 }
 
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+
 @media (max-width: 600px) {
   body {
     background-position: left top;
@@ -137,7 +148,7 @@ button:hover {
     font-size: 20px;
   }
   .card-title{
-    font-size: 20px;
+    font-size: 40px;
   }
   input[type="text"] {
     padding: 10px;
@@ -165,9 +176,7 @@ button:hover {
   .welcome-message {
     font-size: 18px;
   }
-  .card-title{
-    font-size: 18px;
-  }
+
   input[type="text"] {
     padding: 8px;
     font-size: 12px;
