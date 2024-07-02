@@ -22,20 +22,25 @@
                 <h2 class="card-title text">Absensi HUT BNI ke-78</h2>
                 <form id="formData">
                     <div class="form-group">
-                        <label for="nama">Nama:</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
+                        <label for="nama">Nama: </label>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama anda..." required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="npp">NPP:</label>
-                        <input type="text" class="form-control" id="npp" name="npp" required>
+                        <label for="npp">NPP: </label>
+                        <input type="text" class="form-control" id="npp" name="npp" placeholder="Masukkan nomor NPP..." required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="unit">Divisi/Wilayah/Cabang:</label>
-                        <input type="text" class="form-control" id="unit" name="unit" required>
+                        <label for="kantor">Divisi / Wilayah / Cabang: </label>
+                        <input type="text" class="form-control" id="kantor" name="kantor" placeholder="Divisi / Wilayah / Cabang ( nama Cabang )" required>
                     </div>
                     
+                    <div class="form-group">
+                        <label for="unit">Unit: </label>
+                        <input type="text" class="form-control" id="unit" name="unit" placeholder="Masukkan nama unit..." required>
+                    </div>
+
                     <button disabled type="submit" class="btn btn-primary" onclick="submitForm(event)">Kirim</button>
                 </form>
                 <p id="successMessage" class="mt-3" style="display: none; color: black;">Data berhasil dikirim!</p>
