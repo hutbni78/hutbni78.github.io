@@ -44,7 +44,16 @@ function submitForm(event) {
     var npp = document.getElementById('npp').value.trim();
     var kantor = document.getElementById('kantor').value.trim();
     var unit = document.getElementById('unit').value.trim();
-
+    var nppPattern = /^\d+$/;
+    if (!nppPattern.test(npp)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: 'NPP hanya boleh berisi angka.',
+            confirmButtonText: 'Tutup'
+        });
+        return;
+    }
     if (nama === '' || npp === '' || kantor ==='' || unit === '') {
         Swal.fire({
             icon: 'error',
