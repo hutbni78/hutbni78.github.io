@@ -8,11 +8,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
+  /* overflow: hidden; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-/*   overflow: hidden; /* Added */ */
 }
 
 .container {
@@ -22,14 +22,6 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   box-shadow: 20px 0px 20px rgba(0, 0, 0, 0.8);
-}
-
-.welcome-message-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden; /* Added */
 }
 
 .card-body {
@@ -89,6 +81,13 @@ button:hover {
   color: rgb(8, 8, 8);
 }
 
+.welcome-message-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .welcome-message {
   max-width: 600px;
   margin: 20px auto;
@@ -136,7 +135,6 @@ canvas {
 @media (max-width: 600px) {
   body {
     background-position: left top;
-/*     overflow: hidden; /* Added */ */
   }
 
   .welcome-message {
@@ -163,11 +161,9 @@ canvas {
   }
 }
 
-
 @media (max-width: 400px) {
   body {
     background-position: left top;
-    overflow: hidden; /* Added */
   }
 
   .welcome-message {
