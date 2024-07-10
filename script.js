@@ -1,15 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-    if (localStorage.getItem("hasSubmittedForm")) {
-        disableForm();
-        Swal.fire({
-            icon: 'info',
-            title: 'Informasi',
-            text: 'Anda sudah melakukan absensi.',
-            confirmButtonText: 'Tutup'
-        });
-    }
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     
     let welcomeMessageWrapper = document.createElement('div');
@@ -162,11 +150,6 @@ function submitForm(event) {
                     title: 'Berhasil',
                     text: 'Data berhasil dikirim!',
                     confirmButtonText: 'Tutup'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        localStorage.setItem("hasSubmittedForm", "true");
-                        disableForm();
-                    }
                 });
             } else {
                 Swal.fire({
@@ -179,9 +162,6 @@ function submitForm(event) {
         }
     };
 }
-
-
-
 
 function triggerConfetti() {
     var end = Date.now() + (5 * 1000);
@@ -205,8 +185,3 @@ function triggerConfetti() {
         }
     }());
 }
-
-// function disableForm() {
-//     document.getElementById('formData').style.display = 'none';
-//     document.getElementById('alreadySubmittedMessage').style.display = 'block';
-// }
