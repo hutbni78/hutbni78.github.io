@@ -1,5 +1,17 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // Commented out for testing purposes
+    // if (localStorage.getItem("hasSubmittedForm")) {
+    //     disableForm();
+    //     Swal.fire({
+    //         icon: 'info',
+    //         title: 'Informasi',
+    //         text: 'Anda sudah melakukan absensi.',
+    //         confirmButtonText: 'Tutup'
+    //     });
+    // }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
-    
     let welcomeMessageWrapper = document.createElement('div');
     welcomeMessageWrapper.className = 'welcome-message-wrapper';
 
@@ -14,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let playButton = document.createElement('button');
         playButton.className = 'play-button';
         playButton.textContent = 'Lanjut';
-        
+
         playButton.addEventListener('click', () => {
             music.play();
             playButton.remove();
@@ -46,80 +58,117 @@ function showInputText() {
 function submitForm(event) {
     event.preventDefault();
 
-    var nama = document.getElementById('nama').value.trim();
-    var npp = document.getElementById('npp').value.trim();
-    var kantorType = document.querySelector('input[name="kantor_type"]:checked');
-    var kantor = '';
-    var unit = document.getElementById('unit').value.trim();
-    
-    // Validasi untuk memeriksa apakah ada setidaknya satu bidang yang diisi
-    if (nama === '' && npp === '' && unit === '' && !kantorType) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Gagal',
-            text: 'Data tidak boleh kosong.',
-            confirmButtonText: 'Tutup'
-        });
-        return;
-    }
+    var status = document.querySelector('input[name="status"]:checked').value;
+    var formData = new FormData();
 
-    var nppPattern = /^\d+$/;
-    if (npp === '' || !nppPattern.test(npp)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Gagal',
-            text: 'NPP hanya boleh berisi angka dan tidak boleh kosong.',
-            confirmButtonText: 'Tutup'
-        });
-        return;
-    }
+    if (status === 'Pegawai') {
+        var nama = document.getElementById('nama').value.trim();
+        var npp = document.getElementById('npp').value.trim();
+        // var kategori = document.getElementById('kategori').value;
+        var kantorType = document.querySelector('input[name="kantor_type"]:checked');
+        var kantor = '';
+        var unit = document.getElementById('unit').value.trim();
 
-    if (nama === '') {
-        Swal.fire({
-            icon: 'error',
-            title: 'Gagal',
-            text: 'Harap lengkapi Nama anda sebelum mengirim data.',
-            confirmButtonText: 'Tutup'
-        });
-        return;
-    }
+        if (nama === '' || npp === '' || unit === '' || !kantorType) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Data tidak boleh kosong.',
+                confirmButtonText: 'Tutup'
+            });
+            return;
+        }
 
-    if (unit === '') {
-        Swal.fire({
-            icon: 'error',
-            title: 'Gagal',
-            text: 'Harap lengkapi Nama unit sebelum mengirim data.',
-            confirmButtonText: 'Tutup'
-        });
-        return;
-    }
+        if (npp === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Harap lengkapi NPP anda sebelum mengirim data.',
+                confirmButtonText: 'Tutup'
+            });
+            return;
+        }
+        var nppPattern = /^\d+$/;
+        if (!nppPattern.test(npp)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'NPP hanya boleh berisi angka.',
+                confirmButtonText: 'Tutup'
+            });
+            return;
+        }
 
-    if (kantorType) {
-        if (kantorType.value === 'Cabang' || kantorType.value === 'Lainnya') {
-            kantor = document.getElementById('kantor').value.trim();
-            if (kantor === '') {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal',
-                    text: 'Harap lengkapi kolom "Divisi / Wilayah / Cabang / Lainnya" sebelum mengirim data.',
-                    confirmButtonText: 'Tutup'
-                });
-                return;
+        if (nama === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Harap lengkapi Nama anda sebelum mengirim data.',
+                confirmButtonText: 'Tutup'
+            });
+            return;
+        }
+
+        if (unit === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Harap lengkapi Nama unit sebelum mengirim data.',
+                confirmButtonText: 'Tutup'
+            });
+            return;
+        }
+
+        if (kantorType) {
+            if (kantorType.value === 'Cabang' || kantorType.value === 'Lainnya') {
+                kantor = document.getElementById('kantor').value.trim();
+                if (kantor === '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal',
+                        text: 'Harap lengkapi kolom "Divisi / Wilayah / Cabang / Lainnya" sebelum mengirim data.',
+                        confirmButtonText: 'Tutup'
+                    });
+                    return;
+                }
+            } else {
+                kantor = kantorType.value;
             }
         } else {
-            kantor = kantorType.value; // Menggunakan nilai dari radio button langsung
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Harap pilih opsi "Divisi / Wilayah / Cabang / Lainnya" sebelum mengirim data.',
+                confirmButtonText: 'Tutup'
+            });
+            return;
         }
-    } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Gagal',
-            text: 'Harap pilih opsi "Divisi / Wilayah / Cabang / Lainnya" sebelum mengirim data.',
-            confirmButtonText: 'Tutup'
-        });
-        return;
+
+        formData.append('status', status);
+        formData.append('nama', nama);
+        formData.append('npp', npp);
+        formData.append('kantor', kantor);
+        formData.append('unit', unit);
+
+    } else if (status === 'Non Pegawai') {
+        var namaNonPegawai = document.getElementById('nama_non_pegawai').value.trim();
+        var kategori = document.getElementById('kategori').value;
+
+        if (namaNonPegawai === '' || kategori === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Data tidak boleh kosong.',
+                confirmButtonText: 'Tutup'
+            });
+            return;
+        }
+
+        formData.append('status', status);
+        formData.append('nama_non_pegawai', namaNonPegawai);
+        formData.append('kategori', kategori);
     }
 
-    // Menampilkan indikator loading
     Swal.fire({
         title: 'Loading',
         html: 'Sedang mengirim data...',
@@ -129,19 +178,13 @@ function submitForm(event) {
         }
     });
 
-    var formData = new FormData();
-    formData.append('nama', nama);
-    formData.append('npp', npp);
-    formData.append('kantor', kantor);
-    formData.append('unit', unit);
-
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzpYjltWxnc6MGEbH2VzPJY07WFYEAzbMrOnv43WeBcD6Te9k0nbMNKfcfPFQtWZQw6CA/exec');
+    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbxBavLUu0FmrHFhbVQRQOM7HTuqi76BOn3NFROXVl-dTjkHfFHZXUoztRySK9oZrocQbA/exec');
     xhr.send(formData);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            Swal.close(); // Menutup SweetAlert setelah selesai
+            Swal.close();
 
             if (xhr.status === 200) {
                 document.getElementById('formData').reset();
@@ -150,6 +193,11 @@ function submitForm(event) {
                     title: 'Berhasil',
                     text: 'Data berhasil dikirim!',
                     confirmButtonText: 'Tutup'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // localStorage.setItem("hasSubmittedForm", "true");
+                        // disableForm();
+                    }
                 });
             } else {
                 Swal.fire({
@@ -161,6 +209,20 @@ function submitForm(event) {
             }
         }
     };
+}
+
+function toggleForm() {
+    var pegawaiForm = document.getElementById('pegawaiForm');
+    var nonPegawaiForm = document.getElementById('nonPegawaiForm');
+    var status = document.querySelector('input[name="status"]:checked').value;
+
+    if (status === 'Pegawai') {
+        pegawaiForm.style.display = 'block';
+        nonPegawaiForm.style.display = 'none';
+    } else if (status === 'Non Pegawai') {
+        pegawaiForm.style.display = 'none';
+        nonPegawaiForm.style.display = 'block';
+    }
 }
 
 function triggerConfetti() {
@@ -185,3 +247,8 @@ function triggerConfetti() {
         }
     }());
 }
+
+// function disableForm() {
+//     document.getElementById('formData').style.display = 'none';
+//     document.getElementById('alreadySubmittedMessage').style.display = 'block';
+// }
