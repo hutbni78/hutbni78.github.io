@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Commented out for testing purposes
-    // if (localStorage.getItem("hasSubmittedForm")) {
-    //     disableForm();
-    //     Swal.fire({
-    //         icon: 'info',
-    //         title: 'Informasi',
-    //         text: 'Anda sudah melakukan absensi.',
-    //         confirmButtonText: 'Tutup'
-    //     });
-    // }
+    if (localStorage.getItem("hasSubmittedForm")) {
+        disableForm();
+        Swal.fire({
+            icon: 'info',
+            title: 'Informasi',
+            text: 'Anda sudah melakukan absensi.',
+            confirmButtonText: 'Tutup'
+        });
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    
     let welcomeMessageWrapper = document.createElement('div');
     welcomeMessageWrapper.className = 'welcome-message-wrapper';
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let playButton = document.createElement('button');
         playButton.className = 'play-button';
         playButton.textContent = 'Lanjut';
-
+        
         playButton.addEventListener('click', () => {
             music.play();
             playButton.remove();
@@ -60,15 +60,16 @@ function submitForm(event) {
 
     var status = document.querySelector('input[name="status"]:checked').value;
     var formData = new FormData();
-
+    
     if (status === 'Pegawai') {
         var nama = document.getElementById('nama').value.trim();
         var npp = document.getElementById('npp').value.trim();
-        // var kategori = document.getElementById('kategori').value;
+        var kategori = document.getElementById('kategori').value;
         var kantorType = document.querySelector('input[name="kantor_type"]:checked');
         var kantor = '';
         var unit = document.getElementById('unit').value.trim();
-
+        
+        // Validasi untuk memeriksa apakah ada setidaknya satu bidang yang diisi
         if (nama === '' || npp === '' || unit === '' || !kantorType) {
             Swal.fire({
                 icon: 'error',
@@ -132,7 +133,7 @@ function submitForm(event) {
                     return;
                 }
             } else {
-                kantor = kantorType.value;
+                kantor = kantorType.value; // Menggunakan nilai dari radio button langsung
             }
         } else {
             Swal.fire({
@@ -169,6 +170,7 @@ function submitForm(event) {
         formData.append('kategori', kategori);
     }
 
+    // Menampilkan indikator loading
     Swal.fire({
         title: 'Loading',
         html: 'Sedang mengirim data...',
@@ -184,7 +186,7 @@ function submitForm(event) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            Swal.close();
+            Swal.close(); // Menutup SweetAlert setelah selesai
 
             if (xhr.status === 200) {
                 document.getElementById('formData').reset();
@@ -195,8 +197,8 @@ function submitForm(event) {
                     confirmButtonText: 'Tutup'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // localStorage.setItem("hasSubmittedForm", "true");
-                        // disableForm();
+                        localStorage.setItem("hasSubmittedForm", "true");
+                        disableForm();
                     }
                 });
             } else {
@@ -248,7 +250,7 @@ function triggerConfetti() {
     }());
 }
 
-// function disableForm() {
-//     document.getElementById('formData').style.display = 'none';
-//     document.getElementById('alreadySubmittedMessage').style.display = 'block';
-// }
+function disableForm() {
+    document.getElementById('formData').style.display = 'none';
+    document.getElementById('alreadySubmittedMessage').style.display = 'block';
+}
