@@ -21,15 +21,15 @@
         <div class="card-body">
             <h2 class="card-title text">Absensi HUT BNI ke-78</h2>
             <form id="formData">
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="status">Status:</label><br>
                     <input type="radio" id="pegawai" name="status" value="Pegawai" onclick="toggleForm()"> 
                     <label for="pegawai">Pegawai</label><br>
                     <input type="radio" id="non_pegawai" name="status" value="Non Pegawai" onclick="toggleForm()"> 
                     <label for="non_pegawai">Non Pegawai</label>
-                </div>
+                </div> -->
 
-                <div id="pegawaiForm">
+                <div id="pegawaiForm" style="display: none;"">
                     <div class="form-group">
                         <label for="nama">Nama: </label>
                         <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama anda" required>
@@ -78,10 +78,11 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-primary" onclick="submitForm(event)">Kirim</button>
+                <!-- <button type="submit" class="btn btn-primary" onclick="submitForm(event)">Kirim</button> -->
             </form>
             <p id="successMessage" class="mt-3" style="display: none; color: black;">Data berhasil dikirim!</p>
-            <p id="alreadySubmittedMessage" class="mt-3" style="display: none; color: rgb(8, 8, 8); text-align: center;">Anda sudah melakukan absensi.</p>
+            <!-- <p id="alreadySubmittedMessage" class="mt-3" style="color: rgb(8, 8, 8); text-align: center;">Anda sudah melakukan absensi.</p> -->
+            <p id="alreadySubmittedMessage" class="mt-3" style="color: rgb(8, 8, 8); text-align: center;">Link Absen Sudah Ditutup</p>
         </div>
     </div>
 </div>
