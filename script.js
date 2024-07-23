@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let welcomeMessage = document.createElement('div');
     welcomeMessage.className = 'welcome-message';
-    welcomeMessage.innerHTML = '<p class="text2">Selamat datang di acara Wondr Parade Kantor Wilayah Surabaya</p>';
+    welcomeMessage.innerHTML = '<p class="text2">Selamat datang di acara wondr Parade Kantor Wilayah Surabaya</p>';
     welcomeMessageWrapper.appendChild(welcomeMessage);
     document.body.appendChild(welcomeMessageWrapper);
 
