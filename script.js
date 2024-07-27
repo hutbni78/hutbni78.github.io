@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Commented out for testing purposes
-    // if (localStorage.getItem("hasSubmittedForm")) {
-    //     disableForm();
-    //     Swal.fire({
-    //         icon: 'info',
-    //         title: 'Informasi',
-    //         text: 'Anda sudah melakukan absensi.',
-    //         confirmButtonText: 'Tutup'
-    //     });
-    // }
+    if (localStorage.getItem("hasSubmittedFormV2")) {
+        disableFormV2();
+        Swal.fire({
+            icon: 'info',
+            title: 'Informasi',
+            text: 'Anda telah mengisi form absensi sebelumnya.',
+            confirmButtonText: 'Tutup'
+        });
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let playButton = document.createElement('button');
         playButton.className = 'play-button';
         playButton.textContent = 'Lanjut';
-
+        
         playButton.addEventListener('click', () => {
             music.play();
             playButton.remove();
@@ -60,7 +59,7 @@ function submitForm(event) {
 
     var status = document.querySelector('input[name="status"]:checked').value;
     var formData = new FormData();
-
+    
     if (status === 'Pegawai') {
         var nama = document.getElementById('nama').value.trim();
         var npp = document.getElementById('npp').value.trim();
@@ -132,7 +131,7 @@ function submitForm(event) {
                     return;
                 }
             } else {
-                kantor = kantorType.value;
+                kantor = kantorType.value; // Menggunakan nilai dari radio button langsung
             }
         } else {
             Swal.fire({
@@ -179,12 +178,12 @@ function submitForm(event) {
     });
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbxBavLUu0FmrHFhbVQRQOM7HTuqi76BOn3NFROXVl-dTjkHfFHZXUoztRySK9oZrocQbA/exec');
+    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbyBYcubQLntJzjA2k_uFyKAbtT4LnFgnzPtgwvmfmnKXKg_GmWTN1YkyV0xAJ-74Od5PQ/exec');
     xhr.send(formData);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            Swal.close();
+            Swal.close(); // Menutup SweetAlert setelah selesai
 
             if (xhr.status === 200) {
                 document.getElementById('formData').reset();
@@ -195,8 +194,8 @@ function submitForm(event) {
                     confirmButtonText: 'Tutup'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // localStorage.setItem("hasSubmittedForm", "true");
-                        // disableForm();
+                        localStorage.setItem("hasSubmittedFormV2", "true");
+                        disableFormV2();
                     }
                 });
             } else {
@@ -248,7 +247,8 @@ function triggerConfetti() {
     }());
 }
 
-function disableForm() {
+function disableFormV2() {
     document.getElementById('formData').style.display = 'none';
+    document.getElementById('alreadySubmittedMessage').textContent = 'Anda telah mengisi form absensi sebelumnya.';
     document.getElementById('alreadySubmittedMessage').style.display = 'block';
 }
