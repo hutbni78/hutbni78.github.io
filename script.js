@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         Swal.fire({
             icon: 'info',
             title: 'Informasi',
-            text: 'Anda telah mengisi form absensi sebelumnya.',
+            text: 'Anda telah melakukan absensi.',
             confirmButtonText: 'Tutup'
         });
     }
@@ -249,6 +249,6 @@ function triggerConfetti() {
 
 function disableFormV2() {
     document.getElementById('formData').style.display = 'none';
-    document.getElementById('alreadySubmittedMessage').textContent = 'Anda telah mengisi form absensi sebelumnya.';
+    document.getElementById('alreadySubmittedMessage').textContent = 'Anda telah melakukan absensi.';
     document.getElementById('alreadySubmittedMessage').style.display = 'block';
 }
